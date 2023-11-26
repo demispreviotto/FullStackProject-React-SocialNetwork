@@ -5,9 +5,12 @@ import { UserContext } from "../../context/UserContext/UserState";
 const Login = () => {
     const { login } = useContext(UserContext);
 
+    const token = localStorage.getItem("token");
+
     const initialValue = {
         email: "",
         password: "",
+        message: "",
     }
     const [data, setData] = useState(initialValue);
 
@@ -20,14 +23,18 @@ const Login = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        login(data)
-        console.log(data)
-        // setTimeout(() => {
-        //     setData(initialValue);
-        //     navigate("/");
-        // }, 3000);
+        try {
+            await login(data)
+            console.log(data)
+            setData({ ...data, message: `Welcome back ${data.email}` })
+            setTimeout(() => {
+                navigate('/');
+            }, 3000);
+        } catch (error) {
+            setData({ ...data, message: `Email or password incorrect` })
+        }
     };
     return (
         <>
@@ -55,6 +62,8 @@ const Login = () => {
                     <button className='btn primary-btn' type="submit">Login</button>
                 </form>
                 <p>Not Register? <span><Link to='/register'>here</Link></span></p>
+                <button className="btn" onClick={() => console.log(data)}>Data</button>
+                <p>{data.message}</p>
             </div>
         </>
     )

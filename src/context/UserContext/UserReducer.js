@@ -5,6 +5,16 @@ const users = (state, action) => {
                 ...state,
                 token: action.payload.token,
             };
+        case "GET_USER_INFO":
+            return {
+                ...state,
+                user: action.payload,
+            };
+        case "LOGOUT":
+            return {
+                ...state,
+                token: null,
+            };
         default:
             return state;
     }

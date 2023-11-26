@@ -21,10 +21,31 @@ export const UserProvider = ({ children }) => {
             type: "LOGIN",
             payload: res.data,
         });
-        console.log(res)
         if (res.data) {
             localStorage.setItem("token", JSON.stringify(res.data.token));
         }
+    };
+    const getUserInfo = async () => {
+        const token = JSON.parse(localStorage.getItem("token"));
+        const res = await axios.get(
+            API_URL + "/users/profile",
+            {
+                headers: {
+                    authorization: token,
+                },
+            }
+        );
+        dispatch({
+            type: "GET_USER_INFO",
+            payload: res.data,
+        })
+    };
+
+    const logout = async (user) => {
+        localStorage.removeItem("token");
+        dispatch({
+            type: "LOGOUT",
+        });
     };
     return (
         <UserContext.Provider
@@ -32,6 +53,8 @@ export const UserProvider = ({ children }) => {
                 token: state.token,
                 user: state.user,
                 login,
+                getUserInfo,
+                logout,
             }}
         >
             {children}
