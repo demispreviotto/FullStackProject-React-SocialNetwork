@@ -26,23 +26,34 @@ export const UserProvider = ({ children }) => {
         }
     };
     const getUserInfo = async () => {
-        const token = JSON.parse(localStorage.getItem("token"));
-        const res = await axios.get(
-            API_URL + "/users/profile",
-            {
-                headers: {
-                    authorization: token,
-                },
+        try {
+            const token = JSON.parse(localStorage.getItem("token"));
+            const res = await axios.get(
+                API_URL + "/users/profile",
+                {
+                    headers: {
+                        authorization: token,
+                    },
+                }
+            );
+            dispatch({
+                type: "GET_USER_INFO",
+                payload: res.data,
+            })
+        } catch (error) {
+            if (error.response && error.response.status === 404) {
+                dispatch({
+                    type: "GET_USER_INFO",
+                    payload: null,
+                });
+            } else {
+                console.error("Error fetching user info:", error);
             }
-        );
-        dispatch({
-            type: "GET_USER_INFO",
-            payload: res.data,
-        })
-    };
+        }
+    }
 
-    const logout = async (user) => {
-        localStorage.removeItem("token", JSON.stringify(res.data.token));
+    const logout = async () => {
+        localStorage.removeItem("token");
         dispatch({
             type: "LOGOUT",
         });

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import './Navbar.css'
 import { UserContext } from '../../context/UserContext/UserState'
@@ -8,11 +8,17 @@ const Navbar = () => {
     const navigate = useNavigate();
     console.log(user)
 
-    const handleLogout = (e) => {
+    const token = localStorage.getItem("token")
+
+    const handleLogout = async (e) => {
         e.preventDefault()
         console.log('logout click!!')
-        logout();
-        navigate('/')
+        try {
+            await logout();
+            navigate('/')
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     return (
@@ -20,14 +26,14 @@ const Navbar = () => {
             <nav>
                 <NavLink to='/'>Home/</NavLink>
                 <NavLink to='/about'>About/</NavLink>
-                {user ?
+                {!token ?
                     (
+                        <NavLink to='/login'>Login</NavLink>
+                    ) : (
                         <>
                             <NavLink to='/profile'>{user.loggedUser.username}/</NavLink>
                             <NavLink to='/logout' onClick={handleLogout}>Logout</NavLink>
                         </>
-                    ) : (
-                        <NavLink to='/login'>Login</NavLink>
                     )
                 }
             </nav>
