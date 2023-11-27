@@ -1,6 +1,6 @@
 <a name="readme-top"></a>
 
-<h1>Fullstack Socirk Project</h1>
+<h1>Fullstack Social Network Project</h1>
 
 <h2>💬 Introduction</h2>
 
