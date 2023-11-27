@@ -42,7 +42,7 @@ export const UserProvider = ({ children }) => {
     };
 
     const logout = async (user) => {
-        localStorage.removeItem("token");
+        localStorage.removeItem("token", JSON.stringify(res.data.token));
         dispatch({
             type: "LOGOUT",
         });

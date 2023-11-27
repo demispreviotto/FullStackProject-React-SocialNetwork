@@ -4,8 +4,9 @@ import './Navbar.css'
 import { UserContext } from '../../context/UserContext/UserState'
 
 const Navbar = () => {
-    const { logout } = useContext(UserContext)
+    const { logout, user } = useContext(UserContext)
     const navigate = useNavigate();
+    console.log(user)
 
     const handleLogout = (e) => {
         e.preventDefault()
@@ -17,16 +18,16 @@ const Navbar = () => {
     return (
         <>
             <nav>
-                <NavLink to='/'>Home</NavLink>
-                <NavLink to='/about'>About</NavLink>
-                {!localStorage.getItem("token") ?
+                <NavLink to='/'>Home/</NavLink>
+                <NavLink to='/about'>About/</NavLink>
+                {user ?
                     (
-                        <NavLink to='/login'>Login</NavLink>
-                    ) : (
                         <>
-                            <NavLink to='/profile'>MyAccount</NavLink>
+                            <NavLink to='/profile'>{user.loggedUser.username}/</NavLink>
                             <NavLink to='/logout' onClick={handleLogout}>Logout</NavLink>
                         </>
+                    ) : (
+                        <NavLink to='/login'>Login</NavLink>
                     )
                 }
             </nav>
