@@ -1,27 +1,21 @@
-import React, { useContext, useEffect } from 'react'
-// import { GlobalContext } from '../../context/GlobalState';
+import React from 'react'
 import './Home.css'
-import { UserContext } from '../../context/UserContext/UserState';
 import Posts from '../Posts/Posts';
+import NewPostBtn from '../NewPost/NewPostBtn';
+// import { Link } from 'react-router-dom';
+// import { VscAdd } from "react-icons/vsc";
 
 const Home = () => {
-    const { user, getUserInfo } = useContext(UserContext)
 
     const token = localStorage.getItem("token")
+    const user = localStorage.getItem("token")
 
-    useEffect(() => {
-        const fetchData = async () => {
-            if (token && !user) {
-                await getUserInfo();
-                console.log(user);
-            }
-        };
-        fetchData();
-    }, []);
     return (
         <>
-            <h1>Home</h1>
+            <p>Home</p>
             <Posts />
+            <NewPostBtn />
+            {/* <button><Link to='/newPost'><VscAdd /></Link></button> */}
         </>
     )
 }

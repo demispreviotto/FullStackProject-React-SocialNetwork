@@ -12,15 +12,11 @@ export const GlobalProvider = ({ children }) => {
     const [state, dispatch] = useReducer(AppReducer, initialState);
 
     const getPosts = async () => {
-        try {
-            const res = await axios.get("http://localhost:8080/posts/");
-            dispatch({
-                type: "GET_POSTS",
-                payload: res.data
-            })
-        } catch (error) {
-            console.error(error);
-        }
+        const res = await axios.get("http://localhost:8080/posts/");
+        dispatch({
+            type: "GET_POSTS",
+            payload: res.data
+        })
     };
 
     return (

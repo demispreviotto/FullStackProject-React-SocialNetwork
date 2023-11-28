@@ -1,0 +1,30 @@
+.posts-container {
+    margin: 1em;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    padding: 0 .5em;
+    margin-bottom: .5em;
+}
+
+.card a {
+    text-align: right;
+}
+
+.post-footer {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.interaction-container {
+    display: inline-flex;
+    gap: 5px;
+}
+
+.interaction-container a {
+    background-color: transparent;
+    display: flex;
+}

@@ -3,33 +3,45 @@ import axios from "axios";
 import UserReducer from './UserReducer.js';
 
 const token = JSON.parse(localStorage.getItem("token"));
+const user = JSON.parse(localStorage.getItem("user"));
 
 const initialState = {
-    token: token ? token : null,
-    user: null,
+    token: token || null,
+    user: user || null,
 };
-const API_URL = "http://localhost:8080";
+const API_URL = "http://localhost:8080/users";
 
 export const UserContext = createContext(initialState);
 
 export const UserProvider = ({ children }) => {
     const [state, dispatch] = useReducer(UserReducer, initialState);
 
-    const login = async (user) => {
-        const res = await axios.post(API_URL + "/users/login", user);
+    const register = async (userValues) => {
+        try {
+            const res = await axios.post(API_URL + "/register", userValues);
+            dispatch({
+                type: "REGISTER",
+                payload: res.data,
+            });
+        } catch (error) {
+            console.error("Error during registration:", error);
+        }
+    };
+    const login = async (userValues) => {
+        const res = await axios.post(API_URL + "/login", userValues);
         dispatch({
             type: "LOGIN",
             payload: res.data,
         });
         if (res.data) {
             localStorage.setItem("token", JSON.stringify(res.data.token));
+            localStorage.setItem("user", JSON.stringify(res.data.user));
         }
     };
     const getUserInfo = async () => {
         try {
             const token = JSON.parse(localStorage.getItem("token"));
-            const res = await axios.get(
-                API_URL + "/users/profile",
+            const res = await axios.get(API_URL + "/profile",
                 {
                     headers: {
                         authorization: token,
@@ -50,19 +62,25 @@ export const UserProvider = ({ children }) => {
                 console.error("Error fetching user info:", error);
             }
         }
-    }
-
+    };
     const logout = async () => {
-        localStorage.removeItem("token");
+        const token = JSON.parse(localStorage.getItem("token"))
+        const res = await axios.delete(API_URL + '/logout', {
+            headers: {
+                authorization: token,
+            },
+        })
         dispatch({
             type: "LOGOUT",
         });
+        if (res.data) { localStorage.clear() };
     };
     return (
         <UserContext.Provider
             value={{
                 token: state.token,
                 user: state.user,
+                register,
                 login,
                 getUserInfo,
                 logout,

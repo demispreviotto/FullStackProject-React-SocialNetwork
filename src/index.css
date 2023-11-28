@@ -9,6 +9,8 @@
   --clr-3: #535bf2;
   --clr-4: #1a1a1a;
   --clr-5: #213547;
+  --clr-6: rgba(240, 255, 255, 0.1);
+  --clr-7: rgba(255, 255, 255, 0.3);
   /* color: rgba(255, 255, 255, 0.87); */
   background-color: #242424;
 
@@ -16,11 +18,12 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; */
+  height: 100vh;
 }
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--clr-2);
   text-decoration: inherit;
 }
 
@@ -31,7 +34,7 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  /* place-items: center; */
   min-width: 320px;
   min-height: 100vh;
 }

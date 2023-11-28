@@ -1,0 +1,15 @@
+.form-container {
+    margin: 1em;
+}
+
+textarea {
+    font-size: 1.5em;
+    padding: .5em;
+}
+
+.form-container p {
+    position: fixed;
+    top: 260px;
+    right: 25px;
+    color: var(--clr-7);
+}
