@@ -1,8 +1,10 @@
 import React, { useContext, useState } from 'react'
 import { PostContext } from '../../context/PostContext/PostState'
 import './NewPost.css'
+import { useNavigate } from 'react-router-dom';
 const NewPost = () => {
-    const { newPost } = useContext(PostContext)
+    const { newPost } = useContext(PostContext);
+    const navigate = useNavigate();
     const initialValue = {
         content: '',
     }
@@ -18,6 +20,7 @@ const NewPost = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         newPost(data)
+        navigate('/')
     }
 
     return (
@@ -32,7 +35,7 @@ const NewPost = () => {
                         onChange={handleInputChange}
                         maxLength={255} rows={10} cols={50}
                     />
-                    <p>{data.content.length}/255</p>
+                    <p className='char-counter'>{data.content.length}/255</p>
                     <button type='submit'>Post</button>
                 </form>
             </div>

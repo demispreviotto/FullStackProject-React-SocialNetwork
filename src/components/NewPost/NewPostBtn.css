@@ -1,0 +1,21 @@
+.newPostBtn {
+    position: fixed;
+    bottom: 4em;
+    right: 1em;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--clr-6);
+    backdrop-filter: blur(.5em);
+    border-radius: 50%;
+    border: 1px solid var(--clr-7);
+    z-index: 99;
+}
+
+.newPostBtn svg {
+    height: 1.5em;
+    width: 1.5em;
+    translate: -46% -5%;
+    fill: var(--clr-2);
+}

@@ -9,14 +9,14 @@ const Navbar = () => {
     return (
         <>
             <nav>
-                <NavLink to='/'>Home/</NavLink>
-                <NavLink to='/about'>About/</NavLink>
+                <NavLink to='/'>Home</NavLink>
+                <NavLink to='/about'>About</NavLink>
                 {!username ?
                     (
                         <NavLink to='/login'>Login</NavLink>
                     ) : (
                         <>
-                            <NavLink to='/profile'>{user.username}/</NavLink>
+                            <NavLink to='/profile'>{user.username}</NavLink>
                         </>
                     )
                 }

@@ -21,10 +21,11 @@
 
 .interaction-container {
     display: inline-flex;
-    gap: 5px;
+    gap: .5em;
 }
 
 .interaction-container a {
     background-color: transparent;
     display: flex;
+    align-items: center;
 }

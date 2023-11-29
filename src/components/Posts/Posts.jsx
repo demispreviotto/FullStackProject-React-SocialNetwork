@@ -1,12 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { GlobalContext } from '../../context/GlobalState';
-import { Link } from 'react-router-dom';
-import { VscHeart, VscHeartFilled, VscCommentDiscussion, VscBookmark } from "react-icons/vsc";
 import './Posts.css';
+import Post from './Post/Post';
 
 const Posts = () => {
     const { getPosts, posts } = useContext(GlobalContext);
-    const [like, setLike] = useState(false)
 
     useEffect(() => {
         const fetchData = async () => {
@@ -14,16 +12,6 @@ const Posts = () => {
         };
         fetchData();
     }, []);
-
-    const liked = () => {
-        console.log('Liked')
-    }
-    const comment = () => {
-        console.log('commented')
-    }
-    const book = () => {
-        console.log('booked')
-    }
     return (
         <div className='posts-container'>
             {console.log({ posts })}
@@ -32,18 +20,18 @@ const Posts = () => {
             ) : (
                 posts.map((post) => {
                     return (
-                        <div className='card' key={post._id}>
-                            <p>" {post.content} "</p>
-                            {/* <p> - {post.userId.username}</p> */}
-                            <div className="post-footer">
-                                <div className="interaction-container">
-                                    <a onClick={liked}>{like ? <VscHeartFilled /> : <VscHeart />}</a>
-                                    <a onClick={comment}><VscCommentDiscussion /></a>
-                                    <a onClick={book}><VscBookmark /></a>
-                                </div>
-                                <Link to='/'>- {post.userId.username}</Link>
-                            </div>
-                        </div>
+                        <Post key={post._id} post={post} />
+                        // <div className='card' key={post._id}>
+                        //     <p>" {post.content} "</p>
+                        //     <div className="post-footer">
+                        //         <div className="interaction-container">
+                        //             <a onClick={()=>liked(likePost(post._id))}>{likeState ? <VscHeartFilled /> : <VscHeart />} {numLikes > 99 ? "+99" : numLikes}</a>
+                        //             <a onClick={comment}><VscCommentDiscussion /> {numComments > 99 ? "+99" : numComments}</a>
+                        //             <a onClick={book}><VscBookmark /></a>
+                        //         </div>
+                        //         <Link to={`/${post.userId._id}`}>- {post.userId.username}</Link>
+                        //     </div>
+                        // </div>
                     );
                 })
             )}
@@ -51,4 +39,4 @@ const Posts = () => {
     )
 }
 
-export default Posts
+export default Posts;
