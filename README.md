@@ -94,7 +94,6 @@ app.use(cors());
   <img alt="React" height="50" width="60" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg">
   <img alt="SASS" height="50" width="60" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg">
   <img alt="JavaScript" height="50" width="60" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
-  <img alt="Postman" height="50" width="50" src="https://github.com/your-username/social-network-frontend/assets/postman-icon.png">
 </p>
 
 <h2>⬇️ Download</h2>
@@ -112,6 +111,8 @@ $ npm install
 # Start the project
 $ npm start
 ```
+  🔙🔚<a href="https://www.linkedin.com/in/demispreviotto/](https://github.com/demispreviotto/FullStackProject-React-SocialNetwork-Backend" target="_blank">
+Backend Link</a>
 <section>
   <h2>🚀 Development</h2>
   <p>For the development of this project, I will be utilizing the following technologies:</p>
@@ -142,6 +143,17 @@ $ npm start
   </ul>
 </section>
 <section>
+  <h2>📸 Screenshots</h2>
+
+![Recurso 9](https://github.com/demispreviotto/FullStackProject-React-SocialNetwork/assets/99538600/ba4b9d6f-e031-47fd-af3a-7556e4a331fa)
+![Recurso 10](https://github.com/demispreviotto/FullStackProject-React-SocialNetwork/assets/99538600/3df09fe1-5448-4e78-9fd2-41dce44764db)
+![Recurso 11](https://github.com/demispreviotto/FullStackProject-React-SocialNetwork/assets/99538600/dbaced88-546d-49d9-ac04-b82bcfba7ba3)
+![Recurso 12](https://github.com/demispreviotto/FullStackProject-React-SocialNetwork/assets/99538600/5ae493be-6850-4baf-a95d-18912a4fa347)
+![Recurso 13](https://github.com/demispreviotto/FullStackProject-React-SocialNetwork/assets/99538600/192ffbc1-06d9-4e99-b2dc-f42f74fc5125)
+  ![Recurso 14](https://github.com/demispreviotto/FullStackProject-React-SocialNetwork/assets/99538600/2acdbf19-f061-4a8c-b48c-163c8effe6ee)
+
+</section>
+<section>
   <h2>🤝 Contributing</h2>
   <p>Contributions are welcome! Fork the repository, create a feature branch, commit your changes, and open a pull request. Don't forget to show your support by giving the project a star! Thank you!</p>
   <ol>
@@ -151,6 +163,9 @@ $ npm start
     <li>Push to the Branch (<code>git push origin feature/YourName</code>)</li>
     <li>Open a Pull Request</li>
   </ol>
+  <a href="https://www.linkedin.com/in/demispreviotto/](https://github.com/demispreviotto/FullStackProject-React-SocialNetwork-Backend" target="_blank">
+Don't Forget the backend!!</a>
+    
 </section>
 <section>
   <h2>🖊️ License</h2>
