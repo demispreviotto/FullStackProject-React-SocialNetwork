@@ -13,13 +13,12 @@ const Profile = () => {
         }
         fetch()
     }, [])
-    console.log(user)
+
     if (!user) {
         return <div>Loading...</div>;
     }
     return (
         <>
-            {/* <div>Profile</div> */}
             <h1>{user.username}</h1>
             <p>{user.email}</p>
             <Link to='/' onClick={logout}>Logout</Link>

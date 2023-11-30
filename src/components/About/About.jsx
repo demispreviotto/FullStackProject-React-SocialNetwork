@@ -4,7 +4,6 @@ import NewPostBtn from '../Posts/NewPost/NewPostBtn'
 const About = () => {
     return (
         <>
-            {/* <p>About</p> */}
             <div>
                 <a name="readme-top"></a>
 
@@ -102,7 +101,6 @@ const About = () => {
                     <img alt="React" height="50" width="60" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg" />
                     <img alt="SASS" height="50" width="60" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" />
                     <img alt="JavaScript" height="50" width="60" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg" />
-                    {/* <img alt="Postman" height="50" width="50" src="https://github.com/your-username/social-network-frontend/assets/postman-icon.png" /> */}
                 </div>
 
                 <h2>⬇️ Download</h2>
@@ -121,6 +119,8 @@ const About = () => {
                     $ npm start
                     ```
                 </p>
+                🔙🔚<a href="https://www.linkedin.com/in/demispreviotto/](https://github.com/demispreviotto/FullStackProject-React-SocialNetwork-Backend" target="_blank">
+                    Backend Link</a>
                 <section>
                     <h2>🚀 Development</h2>
                     <p>For the development of this project, I will be utilizing the following technologies:</p>
@@ -160,6 +160,8 @@ const About = () => {
                         <li>Push to the Branch (<code>git push origin feature/YourName</code>)</li>
                         <li>Open a Pull Request</li>
                     </ol>
+                    <a href="https://www.linkedin.com/in/demispreviotto/](https://github.com/demispreviotto/FullStackProject-React-SocialNetwork-Backend" target="_blank">
+                        Don't Forget the backend!!</a>
                 </section>
                 <section>
                     <h2>🖊️ License</h2>

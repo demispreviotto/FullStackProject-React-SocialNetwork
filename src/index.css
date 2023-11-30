@@ -6,21 +6,15 @@
   color-scheme: light dark;
   --clr-1: rgba(255, 255, 255, 0.87);
   --clr-2: #646cff;
-  /* --clr-5: #747bff; */
   --clr-3: #b5b9ff;
   --clr-4: #1a1a1a;
   --clr-5: #213547;
   --clr-6: rgba(28, 28, 28, 0.5);
   --clr-7: rgba(255, 255, 255, 0.1);
-  /* color: rgba(255, 255, 255, 0.87); */
   background-color: #242424;
   background-image: url('./assets/J082992.png');
   background-size: cover;
 
-  /* font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; */
   height: 100vh;
 }
 
