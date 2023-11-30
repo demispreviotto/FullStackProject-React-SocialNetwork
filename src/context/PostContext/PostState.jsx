@@ -37,10 +37,7 @@ export const PostProvider = ({ children }) => {
                         authorization: token,
                     },
                 });
-            dispatch({
-                type: "NEW_POST",
-                payload: res.data.post
-            })
+
         } catch (error) {
             console.error(error);
         }
