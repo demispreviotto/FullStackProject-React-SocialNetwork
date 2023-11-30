@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
-import './Navbar.css'
+import './Navbar.scss'
 import { UserContext } from '../../context/UserContext/UserState'
 
 const Navbar = () => {

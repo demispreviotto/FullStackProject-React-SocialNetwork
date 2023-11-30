@@ -3,7 +3,7 @@ const posts = (state, action) => {
         case "GET_POSTS":
             return {
                 ...state,
-                posts: action.payload, //res.data.results
+                posts: action.payload,
             };
         default:
             return state;

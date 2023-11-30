@@ -27,9 +27,9 @@ const Profile = () => {
                 {user.postIds.length === 0 ? (
                     <p>No posts available.</p>
                 ) : (
-                    user.postIds.map((post) => {
+                    user.postIds.map((post, index) => {
                         return (
-                            <Post key={post._id} post={post} />
+                            <Post key={index} post={post} />
                         );
                     })
                 )}

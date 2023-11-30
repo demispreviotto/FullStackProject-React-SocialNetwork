@@ -3,7 +3,6 @@ import { VscBookmark, VscCommentDiscussion, VscHeart, VscHeartFilled } from 'rea
 import { Link, useNavigate } from 'react-router-dom'
 import { UserContext } from '../../../context/UserContext/UserState';
 import { PostContext } from '../../../context/PostContext/PostState';
-import axios from 'axios';
 
 const Post = ({ post }) => {
     const { likePost, unLikePost, getById } = useContext(PostContext);

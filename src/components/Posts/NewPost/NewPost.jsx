@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { PostContext } from '../../../context/PostContext/PostState'
-import './NewPost.css'
+import './NewPost.scss'
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../../context/UserContext/UserState';
 const NewPost = () => {

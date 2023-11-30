@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { GlobalContext } from '../../context/GlobalState';
-import './Posts.css';
+import './Posts.scss';
 import Post from './Post/Post';
 
 const Posts = () => {

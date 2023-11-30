@@ -13,11 +13,6 @@ const comments = (state, action) => {
                 ...state,
                 comments: updatedComments,
             };
-        // case "GET_COMMENT_BY_ID":
-        //     return {
-        //         ...state,
-        //         comments: action.payload,
-        //     };
         default:
             return state;
     }

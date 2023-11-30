@@ -1,0 +1,23 @@
+@import './variables';
+$font-family: $font-family;
+
+:root {
+    font-family: $font-family;
+    box-sizing: border-box;
+    line-height: 1.5;
+    font-weight: 400;
+    color-scheme: light dark;
+
+    background-color: #242424;
+    background-image: url('./assets/J082992.png');
+    background-size: cover;
+
+    height: 100vh;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    min-width: 320px;
+    min-height: 100vh;
+}

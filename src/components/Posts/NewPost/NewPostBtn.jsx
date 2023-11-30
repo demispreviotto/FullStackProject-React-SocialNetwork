@@ -1,7 +1,7 @@
 import React from 'react'
 import { VscAdd } from 'react-icons/vsc'
 import { useNavigate } from 'react-router-dom';
-import './NewPostBtn.css'
+import './NewPostBtn.scss'
 
 const NewPostBtn = () => {
     const navigate = useNavigate();

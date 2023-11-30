@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext/UserState';
 
 const Register = () => {
@@ -15,8 +15,6 @@ const Register = () => {
 
     const [data, setData] = useState(initialValue);
 
-    // const navigate = useNavigate();
-
     const handleInputChange = (e) => {
         setData({
             ...data,
@@ -30,9 +28,6 @@ const Register = () => {
             if (data.password === data.confirmPassword) {
                 await register(data);
                 setData({ ...data, message: `Waiting for confirmation. An email was send to your email account` })
-                // setTimeout(() => {
-                //     navigate('/');
-                // }, 3000);
             } else {
                 setData({ ...data, message: `Password is not the same` })
             }

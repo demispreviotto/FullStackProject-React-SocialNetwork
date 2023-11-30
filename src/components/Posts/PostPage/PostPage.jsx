@@ -4,7 +4,7 @@ import { PostContext } from '../../../context/PostContext/PostState';
 import Post from '../Post/Post';
 import Comments from '../Comments/Comments';
 import NewComment from '../Comments/NewComment/NewComment';
-import './PostPage.css'
+import './PostPage.scss'
 
 const PostPage = () => {
     const { getById, post } = useContext(PostContext)
