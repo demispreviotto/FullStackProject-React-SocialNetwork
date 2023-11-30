@@ -20,7 +20,6 @@ export const CommentProvider = ({ children }) => {
 
     const newComment = async (data, postId) => {
         try {
-            console.log(data, postId)
             const res = await axios.post(`${API_URL}/${postId}`, data,
                 {
                     headers: {

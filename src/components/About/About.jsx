@@ -4,7 +4,7 @@ import NewPostBtn from '../Posts/NewPost/NewPostBtn'
 const About = () => {
     return (
         <>
-            <p>About</p>
+            {/* <p>About</p> */}
             <div>
                 <a name="readme-top"></a>
 

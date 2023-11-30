@@ -19,7 +19,7 @@ const Profile = () => {
     }
     return (
         <>
-            <div>Profile</div>
+            {/* <div>Profile</div> */}
             <h1>{user.username}</h1>
             <p>{user.email}</p>
             <Link to='/' onClick={logout}>Logout</Link>

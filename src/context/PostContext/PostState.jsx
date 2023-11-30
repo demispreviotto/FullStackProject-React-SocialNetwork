@@ -57,6 +57,7 @@ export const PostProvider = ({ children }) => {
                 type: "LIKE_POST",
                 payload: updatedPost.data,
             })
+            // getPosts()
         } catch (error) {
             console.error(error);
         }

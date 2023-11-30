@@ -6,7 +6,7 @@ import { PostContext } from '../../../context/PostContext/PostState';
 import axios from 'axios';
 
 const Post = ({ post }) => {
-    const { likePost, unLikePost } = useContext(PostContext);
+    const { likePost, unLikePost, getById } = useContext(PostContext);
     const { user } = useContext(UserContext);
     const [likeState, setLikeState] = useState(false)
     const initialCounter = {
@@ -28,7 +28,7 @@ const Post = ({ post }) => {
     }, [])
 
     const handleLike = async () => {
-        if (user) {
+        if (user && post) {
             try {
                 if (!likeState) {
                     await likePost(post._id);
@@ -36,11 +36,11 @@ const Post = ({ post }) => {
                     await unLikePost(post._id);
                 }
 
-                const updatedPost = await axios.get(`http://localhost:8080/posts/${post._id}`);
+                const updatedPost = await getById(post._id);
                 setLikeState(!likeState);
                 setCounters({
                     ...counters,
-                    numLikes: updatedPost.data.likes.length,
+                    numLikes: updatedPost.likes.length,
                 });
             } catch (error) {
                 console.error(error);
