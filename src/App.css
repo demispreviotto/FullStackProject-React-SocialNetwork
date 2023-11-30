@@ -11,6 +11,10 @@ a {
   text-decoration: inherit;
 }
 
+a.active {
+  color: var(--clr-3);
+}
+
 a:hover {
   color: var(--clr-3);
 }

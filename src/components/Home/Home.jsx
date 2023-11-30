@@ -1,9 +1,7 @@
 import React from 'react'
 import './Home.css'
 import Posts from '../Posts/Posts';
-import NewPostBtn from '../NewPost/NewPostBtn';
-// import { Link } from 'react-router-dom';
-// import { VscAdd } from "react-icons/vsc";
+import NewPostBtn from '../Posts/NewPost/NewPostBtn';
 
 const Home = () => {
 
@@ -15,7 +13,6 @@ const Home = () => {
             <p>Home</p>
             <Posts />
             <NewPostBtn />
-            {/* <button><Link to='/newPost'><VscAdd /></Link></button> */}
         </>
     )
 }

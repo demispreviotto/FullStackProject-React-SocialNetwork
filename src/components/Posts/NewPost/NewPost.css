@@ -1,0 +1,13 @@
+.form-container {
+    margin: 1em;
+}
+
+.form-container .char-counter {
+    color: var(--clr-7);
+    display: flex;
+    text-align: end;
+    margin-top: -2em;
+    margin-right: 1em;
+    justify-content: flex-end;
+    z-index: 0;
+}

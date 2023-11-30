@@ -29,7 +29,6 @@ const Register = () => {
         try {
             if (data.password === data.confirmPassword) {
                 await register(data);
-                console.log(data)
                 setData({ ...data, message: `Waiting for confirmation. An email was send to your email account` })
                 // setTimeout(() => {
                 //     navigate('/');

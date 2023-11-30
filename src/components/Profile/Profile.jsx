@@ -1,14 +1,19 @@
 import React, { useContext, useEffect } from 'react'
 import { UserContext } from '../../context/UserContext/UserState';
 import { Link } from 'react-router-dom';
-import NewPostBtn from '../NewPost/NewPostBtn';
+import NewPostBtn from '../Posts/NewPost/NewPostBtn';
+import Post from '../Posts/Post/Post';
 
 const Profile = () => {
     const { getUserInfo, user, logout } = useContext(UserContext);
-    useEffect(() => {
-        getUserInfo()
-    }, [])
 
+    useEffect(() => {
+        const fetch = async () => {
+            await getUserInfo();
+        }
+        fetch()
+    }, [])
+    console.log(user)
     if (!user) {
         return <div>Loading...</div>;
     }
@@ -19,6 +24,17 @@ const Profile = () => {
             <p>{user.email}</p>
             <Link to='/' onClick={logout}>Logout</Link>
             <NewPostBtn />
+            <div className='posts-container'>
+                {user.postIds.length === 0 ? (
+                    <p>No posts available.</p>
+                ) : (
+                    user.postIds.map((post) => {
+                        return (
+                            <Post key={post._id} post={post} />
+                        );
+                    })
+                )}
+            </div>
 
         </>
     )

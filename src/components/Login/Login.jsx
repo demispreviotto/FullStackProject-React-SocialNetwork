@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from "../../context/UserContext/UserState";
 
@@ -25,7 +25,6 @@ const Login = () => {
         e.preventDefault();
         try {
             await login(data)
-            console.log(data)
             setData({ ...data, message: `Welcome back ${data.email}` })
             setTimeout(() => {
                 navigate('/');
@@ -60,7 +59,6 @@ const Login = () => {
                     <button className='btn primary-btn' type="submit">Login</button>
                 </form>
                 <p>Not Register? <span><Link to='/register'>here</Link></span></p>
-                {/* <button className="btn" onClick={() => console.log(data)}>Data</button> */}
                 <p>{data.message}</p>
             </div>
         </>

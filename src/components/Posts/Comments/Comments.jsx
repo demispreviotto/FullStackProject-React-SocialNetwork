@@ -1,25 +1,21 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { VscBookmark, VscCommentDiscussion, VscHeart, VscHeartFilled } from 'react-icons/vsc'
-import { Link, useNavigate } from 'react-router-dom'
 import { UserContext } from '../../../context/UserContext/UserState';
 import { PostContext } from '../../../context/PostContext/PostState';
-import axios from 'axios';
+import { VscHeart, VscHeartFilled } from 'react-icons/vsc';
+import { Link } from 'react-router-dom';
 
-const Post = ({ post }) => {
-    const { likePost, unLikePost } = useContext(PostContext);
+const Comments = (comment) => {
+    const { likePost, unLikePost, post } = useContext(PostContext);
     const { user } = useContext(UserContext);
     const [likeState, setLikeState] = useState(false)
     const initialCounter = {
-        numComments: post.commentIds?.length || 0,
-        numLikes: post.likes?.length || 0,
+        numLikes: comment.comment.likes.length,
     }
     const [counters, setCounters] = useState(initialCounter)
 
-    const navigate = useNavigate();
-
     useEffect(() => {
-        if (user && post.likes) {
-            if (post.likes.includes(user._id)) {
+        if (user) {
+            if (comment.comment.likes?.includes(user._id)) {
                 setLikeState(true)
             }
         } else {
@@ -36,7 +32,7 @@ const Post = ({ post }) => {
                     await unLikePost(post._id);
                 }
 
-                const updatedPost = await axios.get(`http://localhost:8080/posts/${post._id}`);
+                const updatedPost = await await getById(post._Id);
                 setLikeState(!likeState);
                 setCounters({
                     ...counters,
@@ -47,26 +43,19 @@ const Post = ({ post }) => {
             }
         }
     }
-    const handleBook = () => {
-        console.log('push the postId to the saved posts of the logged user')
-    }
 
-    if (!post.userId) {
-        return 'cargando'
-    }
     return (
         <div className='card'>
-            <p>" {post.content} "</p>
+            <p>"{comment.comment.text} " </p>
             <div className="post-footer">
                 <div className="interaction-container">
                     <a onClick={handleLike}>{likeState ? <VscHeartFilled /> : <VscHeart />} {counters.numLikes > 99 ? "+99" : counters.numLikes}</a>
-                    <a onClick={() => navigate(`/post/${post._id}`)}><VscCommentDiscussion /> {counters.numComments > 99 ? "+99" : counters.numComments}</a>
-                    <a onClick={handleBook}><VscBookmark /></a>
                 </div>
-                <Link to={`/${post.userId._id}`}>- {post.userId.username}</Link>
+                <Link to={`/${comment.comment.userId._id}`}>- {comment.comment.userId.username}</Link>
             </div>
         </div>
+
     )
 }
 
-export default Post
+export default Comments

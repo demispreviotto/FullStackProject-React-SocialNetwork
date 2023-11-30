@@ -1,5 +1,5 @@
 import React from 'react'
-import NewPostBtn from '../NewPost/NewPostBtn'
+import NewPostBtn from '../Posts/NewPost/NewPostBtn'
 
 const About = () => {
     return (
